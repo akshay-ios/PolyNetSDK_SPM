@@ -1,20 +1,33 @@
-# PolyNetSDK_SPM
+# PolyNetSDK
 PolyNetSDK xcframework integration guide
+This project is the PolyNet SDK for iOS and tvOS. It is written in Swift 5 and supports Swift 6.
 
-PolyNetSDK is a Swift package that provides advanced networking functionality for iOS and tvOS platforms. This SDK is designed to facilitate WebRTC communication and includes features such as:
+# Platforms Requirements
+The PolyNet SDK is compatible with iOS 12.0 or higher and tvOS 12.0 or higher. macOS is not supported by now.
+# Versions
+The PolyNetSDK conforms to the Semantic Versioning 2.0.0. The version 5.0.0 is the first to use this standard competely, because version 4 used a partial of this.
 
-WebRTC integration
+# Targets
+PolyNetSDK_iOS: This is the main target of the iOS Dynamic Framework, used in development.
 
-Protobuf support
+PolyNetSDK_iOS_Test: This target is needed for iOS unit testing.
 
-WebSocket support with Starscream
+PolyNetSDK_tvOS: This is the main target of the tvOS Dynamic Framework, used in development.
 
-Features
-WebRTC Support: Provides the foundation for real-time communication.
+PolyNetSDK_tvOS_Test: This target is needed for tvOS unit testing.
 
-Protobuf: For efficient serialization of structured data.
+PolyNetSDK_XCFramework: This target is used to build the XCFramework.
+# Swift ABI and Module Stability
+The PolyNet SDK is build with BUILD_FOR_DISTRIBUTION to YES, so the framework is forward compatible with Swift compilers. Backwards compatibility with older Swift version compilers are not guarantee.
+# XCFramework
+The project uses the target PolyNetSDK_XCFramework to build an xcframework with the following architectures:
 
-WebSockets (via Starscream): Used for real-time, bidirectional communication.
+arm64 iOS devices.
+x86_64 for iOS simulators.
+arm64 for tvOS devices.
+x86_64 for tvOS simulators.
+arm64 for iOS simulators are supported now and for tvOS simulators (simulators running on M1 & M2 silicon) are supported only through Rosetta.
+
 
 Requirements
 iOS 12.0+ and tvOS 12.0+
@@ -81,7 +94,7 @@ func setupWebRTC() {
 Documentation
 For more details on integrating and using the PolyNetSDK in your project, please refer to the API documentation.
 
-License
+# License
 This SDK is distributed under the MIT License.
 
 🔄 Final Notes
